@@ -6,7 +6,7 @@ export default defineComponent({
     const message = ref("homeです");
     return () => (
       <div class="home">
-        {message.value}
+        <h1>{message.value}</h1>
       </div>
     );
   },

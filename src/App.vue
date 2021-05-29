@@ -3,7 +3,6 @@ import { defineComponent } from "vue";
 import MainMenu from "@/components/MainMenu.vue"; // @ is an alias to /src
 
 export default defineComponent({
-  name: 'App',
   setup() {
     return () => (
       <div id="main" class="container">
@@ -14,8 +13,8 @@ export default defineComponent({
           <router-view />
         </div>
       </div>
-    )
-  }
+    );
+  },
 });
 </script>
 <style scoped>

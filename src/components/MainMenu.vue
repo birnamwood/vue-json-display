@@ -11,10 +11,10 @@ export default defineComponent({
             <span class="headline">{title.value}</span>
           </v-card-title>
           <v-card-title class="menu-item">
-              <router-link to="home">Home</router-link>
+            <router-link to="home">Home</router-link>
           </v-card-title>
           <v-card-title class="menu-item">
-              <router-link to="log">Log</router-link>
+            <router-link to="log">Log</router-link>
           </v-card-title>
         </v-card>
       </div>
