@@ -1,30 +1,33 @@
-<template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view />
-</template>
+<script lang="tsx">
+import { defineComponent } from "vue";
+import MainMenu from "@/components/MainMenu.vue"; // @ is an alias to /src
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+export default defineComponent({
+  name: 'App',
+  setup() {
+    return () => (
+      <div id="main" class="container">
+        <div id="main-menu-area">
+          <MainMenu />
+        </div>
+        <div id="router-view-area">
+          <router-view />
+        </div>
+      </div>
+    )
+  }
+});
+</script>
+<style scoped>
+.container {
+  display: flex;
 }
-
-#nav {
-  padding: 30px;
+#main-menu-area {
+  width: 20vh;
+  height: 100vh;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+#router-view-area {
+  width: 80vh;
+  height: 100vh;
 }
 </style>
