@@ -7,8 +7,8 @@ export default defineComponent({
     return () => (
       <div id="main-menu">
         <v-card height="100vh">
-          <v-card-title class="background-blue">
-            <span class="headline">{title.value}</span>
+          <v-card-title class="menu-title">
+            <router-link to="home">{title.value}</router-link>
           </v-card-title>
           <v-card-title class="menu-item">
             <router-link to="home">Home</router-link>
@@ -23,9 +23,12 @@ export default defineComponent({
 });
 </script>
 <style scoped lang="scss">
-.background-blue {
+.menu-title {
   background-color: blue;
-  color: white;
+  a {
+    color: white;
+    text-decoration: none;
+  }
 }
 .menu-item {
   background-color: #eeffff;

@@ -1,6 +1,6 @@
 <script lang="tsx">
 import { defineComponent, ref } from "vue";
-import FilePicker from "@/components/FilePicker.vue"; // @ is an alias to /src
+import FilePicker from "@/components/log/FilePicker.vue"; // @ is an alias to /src
 
 export default defineComponent({
   setup() {
