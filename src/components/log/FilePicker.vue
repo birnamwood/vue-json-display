@@ -1,9 +1,11 @@
 <script lang="tsx">
-import { defineComponent, ref, reactive } from "vue";
+import { defineComponent, reactive } from "vue";
 
 export default defineComponent({
   setup() {
-    let json = ref("");
+    let json = reactive({
+      data: [],
+    });
 
     const loadFile = (event: Event) => {
       if (event.target == null) {
@@ -11,7 +13,7 @@ export default defineComponent({
       }
       const input = event.target as HTMLInputElement;
       if (!input.files?.length) {
-          return;
+        return;
       }
       let file = input.files[0];
 
@@ -21,18 +23,36 @@ export default defineComponent({
       }
       let reader = new FileReader();
       reader.readAsText(file);
-      reader.onload = (event: Event) => {
-        json.value = JSON.stringify(reader.result);
+      reader.onload = () => {
+        let j = JSON.stringify(reader.result);
+        let jh = JSON.parse(j);
+        json.data = jh.split("\n");
       };
       return;
     };
+
     return () => (
       <div class="file-picker">
         <input type="file" onChange={loadFile} />
         <br />
-        <span>{json.value}</span>
+        <div class="data-area">
+          {json.data.map((j) => {
+            return (
+              <span>
+                {j}
+                <br />
+              </span>
+            );
+          })}
+        </div>
       </div>
     );
   },
 });
 </script>
+
+<style scoped lang="scss">
+.data-area {
+  width: 100%;
+}
+</style>

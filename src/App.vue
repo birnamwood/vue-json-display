@@ -22,11 +22,11 @@ export default defineComponent({
   display: flex;
 }
 #main-menu-area {
-  width: 20vh;
+  width: 20%;
   height: 100vh;
 }
 #router-view-area {
-  width: 80vh;
+  width: 80%;
   height: 100vh;
 }
 </style>
