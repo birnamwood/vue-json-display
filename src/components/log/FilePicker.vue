@@ -17,7 +17,7 @@ export default defineComponent({
       if (!input.files?.length) {
         return;
       }
-      let file = input.files[0];
+      let file: File = input.files[0];
 
       if (!file.type.match("json")) {
         alert("Jsonファイルを選択してください");
@@ -36,17 +36,6 @@ export default defineComponent({
     return () => (
       <div class="file-picker">
         <input type="file" onChange={loadFile} />
-        <br />
-        <div class="data-area">
-          {store.state.json.map((j: string) => {
-            return (
-              <span>
-                {j}
-                <br />
-              </span>
-            );
-          })}
-        </div>
       </div>
     );
   },
