@@ -1,11 +1,13 @@
 <script lang="tsx">
-import { defineComponent, reactive } from "vue";
+import { defineComponent } from "vue";
+import { useStore } from "@/store/state";
 
 export default defineComponent({
   setup() {
-    let json = reactive({
-      data: [],
-    });
+    // let json = reactive({
+    //   data: [],
+    // });
+    const store = useStore();
 
     const loadFile = (event: Event) => {
       if (event.target == null) {
@@ -26,7 +28,7 @@ export default defineComponent({
       reader.onload = () => {
         let j = JSON.stringify(reader.result);
         let jh = JSON.parse(j);
-        json.data = jh.split("\n");
+        store.state.json = jh.split("\n");
       };
       return;
     };
@@ -36,7 +38,7 @@ export default defineComponent({
         <input type="file" onChange={loadFile} />
         <br />
         <div class="data-area">
-          {json.data.map((j) => {
+          {store.state.json.map((j: string) => {
             return (
               <span>
                 {j}
