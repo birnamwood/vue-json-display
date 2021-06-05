@@ -5,7 +5,7 @@ import MainMenu from "@/components/MainMenu.vue"; // @ is an alias to /src
 export default defineComponent({
   setup() {
     return () => (
-      <div id="main" class="container">
+      <div id="main">
         <div id="main-menu-area">
           <MainMenu />
         </div>
@@ -18,15 +18,15 @@ export default defineComponent({
 });
 </script>
 <style scoped>
-.container {
-  display: flex;
-}
 #main-menu-area {
-  width: 20%;
-  height: 100vh;
+  background-color: blue;
+  width: 100%;
+  height: 60px;
+  position: fixed;
 }
 #router-view-area {
-  width: 80%;
-  height: 100vh;
+  padding-top: 5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 </style>

@@ -3,38 +3,49 @@ import { defineComponent, ref } from "vue";
 
 export default defineComponent({
   setup() {
-    const title = ref("Menu");
+    const title = ref("MyTools");
     return () => (
       <div id="main-menu">
-        <v-card height="100vh">
-          <v-card-title class="menu-title">
-            <router-link to="home">{title.value}</router-link>
-          </v-card-title>
-          <v-card-title class="menu-item">
-            <router-link to="home">Home</router-link>
-          </v-card-title>
-          <v-card-title class="menu-item">
-            <router-link to="log">Log</router-link>
-          </v-card-title>
-        </v-card>
+        <div id="main-menu-title">
+          <router-link to="home">{title.value}</router-link>
+        </div>
+        <div id="main-menu-items">
+          <router-link to="log" class="main-menu-item">
+            Log
+          </router-link>
+          <router-link to="weather" class="main-menu-item">
+            Weather
+          </router-link>
+        </div>
       </div>
     );
   },
 });
 </script>
 <style scoped lang="scss">
-.menu-title {
-  background-color: blue;
+#main-menu {
+  display: flex;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  padding: 1rem;
+}
+#main-menu-title {
   a {
     color: white;
     text-decoration: none;
+    font-size: 20px;
   }
 }
-.menu-item {
-  background-color: #eeffff;
+#main-menu-items {
+  margin-left: auto;
   a {
-    color: gray;
+    color: white;
     text-decoration: none;
+    font-size: 18px;
   }
+}
+.main-menu-item {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 </style>
