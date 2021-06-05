@@ -1,7 +1,7 @@
 import { createStore, useStore as baseUseStore, Store } from "vuex";
 import { InjectionKey } from "vue";
-import { actions } from "./actions";
-import { mutations } from "./mutations";
+import weather from "./modules/weather";
+import log from "./modules/log";
 
 // TypeScriptでStoreを使用するのにkeyが必要
 export const key: InjectionKey<Store<State>> = Symbol();
@@ -13,14 +13,17 @@ export function useStore(): Store<State> {
 
 // Stateのインターフェース
 export interface State {
+  // log
   json: string[];
+  // weather
+  description: string;
+  temp: string;
+  place: string;
 }
 
 export const store = createStore<State>({
-  state: {
-    json: [],
+  modules: {
+    weather: weather,
+    log: log,
   },
-  mutations: mutations,
-  actions: actions,
-  modules: {},
 });

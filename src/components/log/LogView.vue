@@ -8,14 +8,15 @@ export default defineComponent({
 
     return () => (
       <div class="log-view">
-        {store.state.json.map((j: string) => {
-          return (
-            <span>
-              {j}
-              <br />
-            </span>
-          );
-        })}
+        {store.state.json &&
+          store.state.json.map((j: string) => {
+            return (
+              <span>
+                {j}
+                <br />
+              </span>
+            );
+          })}
       </div>
     );
   },
