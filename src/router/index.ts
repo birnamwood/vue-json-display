@@ -19,6 +19,12 @@ const routes: Array<RouteRecordRaw> = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Weather.vue"),
   },
+  {
+    path: "/read-file",
+    name: "read-file",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/ReadFile.vue"),
+  },
 ];
 
 const router = createRouter({

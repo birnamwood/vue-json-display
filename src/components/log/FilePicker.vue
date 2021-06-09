@@ -13,7 +13,7 @@ export default defineComponent({
       if (event.target == null) {
         return;
       }
-      const input = event.target as HTMLInputElement;
+      const input: HTMLInputElement = event.target as HTMLInputElement;
       if (!input.files?.length) {
         return;
       }
@@ -23,11 +23,11 @@ export default defineComponent({
         alert("Jsonファイルを選択してください");
         return;
       }
-      let reader = new FileReader();
+      let reader: FileReader = new FileReader();
       reader.readAsText(file);
       reader.onload = () => {
-        let j = JSON.stringify(reader.result);
-        let jh = JSON.parse(j);
+        let j: string = JSON.stringify(reader.result);
+        let jh: string = JSON.parse(j);
         store.state.json = jh.split("\n");
       };
       return;
@@ -41,9 +41,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped lang="scss">
-.data-area {
-  width: 100%;
-}
-</style>

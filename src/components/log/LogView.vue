@@ -22,9 +22,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped lang="scss">
-.log-view {
-  width: 100%;
-}
-</style>

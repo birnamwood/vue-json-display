@@ -16,6 +16,9 @@ export default defineComponent({
           <router-link to="weather" class="main-menu-item">
             Weather
           </router-link>
+          <router-link to="read-file" class="main-menu-item">
+            ReadFile
+          </router-link>
         </div>
       </div>
     );
